@@ -34,12 +34,22 @@ function playRound(playerSelection, computerSelection) {
   console.log(`SCORE\tYou: ${playerScore} \tComputer: ${computerScore}`);
 }
 
+// Play the game for 5 rounds
 function game() {
   for (let i = 1; i <= 5; i++) {
     console.log('Round ' + i);
     const playerSelection = prompt("ROUND " + i + ":\nRock, Paper, or Scissors?");
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+  }
+
+  // Display overall results of the game
+  if (playerScore > computerScore) {
+    console.log('You win the game!');
+  } else if (playerScore < computerScore) {
+    console.log('You lose the game!');
+  } else {
+    console.log(`It's a draw!`);
   }
 }
 
