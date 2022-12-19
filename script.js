@@ -18,7 +18,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let playerSelect = playerSelection.slice(0, 1).toUpperCase() + playerSelection.slice(1).toLowerCase();
   let computerSelect = computerSelection;
-  console.log(`You: ${playerSelect} \nComputer: ${computerSelect}`)
+  console.log(`You: ${playerSelect} \nComputer: ${computerSelect}`);
 
   if (playerSelect == computerSelect) {
     console.log('Draw!');
@@ -26,12 +26,24 @@ function playRound(playerSelection, computerSelection) {
     (playerSelect == 'Paper' && computerSelect == 'Scissors') ||
     (playerSelect == 'Scissors' && computerSelect == 'Rock')) {
     console.log(`You lose! ${computerSelect} beats ${playerSelect}`);
+    computerScore++;
   } else {
     console.log(`You win! ${playerSelect} beats ${computerSelect}`);
+    playerScore++;
+  }
+  console.log(`SCORE\tYou: ${playerScore} \tComputer: ${computerScore}`);
+}
+
+function game() {
+  for (let i = 1; i <= 5; i++) {
+    console.log('Round ' + i);
+    const playerSelection = 'rock';
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
   }
 }
 
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
+let computerScore = 0;
+let playerScore = 0;
 
-playRound(playerSelection, computerSelection);
+game();
