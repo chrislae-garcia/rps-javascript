@@ -19,6 +19,9 @@ function getComputerChoice() {
 
 // Play a round between player and computer
 function playRound(playerSelection, computerSelection) {
+
+  if (playerScore == 5 || computerScore == 5) return;
+
   let playerSelect = playerSelection.slice(0, 1).toUpperCase() + playerSelection.slice(1).toLowerCase();
   let computerSelect = computerSelection;
 
@@ -33,6 +36,13 @@ function playRound(playerSelection, computerSelection) {
     results.textContent = `You win! ${playerSelect} beats ${computerSelect}`;
     playerScore++;
   }
+
+  if (playerScore == 5) {
+    results.textContent = `You win the game!`;
+  } else if (computerScore == 5) {
+    results.textContent = `You lose the game!`;
+  }
+
   score.textContent = `SCORE\tYou: ${playerScore} \tComputer: ${computerScore}`;
 }
 
