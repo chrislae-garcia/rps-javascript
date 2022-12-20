@@ -35,23 +35,39 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Play the game for 5 rounds
-function game() {
-  
-    const playerSelection = prompt("Rock, Paper, or Scissors?");
-    const computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
+// function game() {
 
-  // Display overall results of the game
-  if (playerScore > computerScore) {
-    console.log('You win the game!');
-  } else if (playerScore < computerScore) {
-    console.log('You lose the game!');
-  } else {
-    console.log(`It's a draw!`);
-  }
-}
+//     const playerSelection = prompt("Rock, Paper, or Scissors?");
+//     const computerSelection = getComputerChoice();
+//     playRound(playerSelection, computerSelection);
+
+//   // Display overall results of the game
+//   if (playerScore > computerScore) {
+//     console.log('You win the game!');
+//   } else if (playerScore < computerScore) {
+//     console.log('You lose the game!');
+//   } else {
+//     console.log(`It's a draw!`);
+//   }
+// }
+
+// game();
 
 let computerScore = 0;
 let playerScore = 0;
 
-game();
+const btnPlayerRock = document.querySelector('#player-rock');
+const btnPlayerPaper = document.querySelector('#player-paper');
+const btnPlayerScissors = document.querySelector('#player-scissors');
+
+btnPlayerRock.addEventListener('click', () => {
+  playRound('rock', getComputerChoice());
+});
+
+btnPlayerPaper.addEventListener('click', () => {
+  playRound('paper', getComputerChoice());
+});
+
+btnPlayerScissors.addEventListener('click', () => {
+  playRound('scissors', getComputerChoice());
+});
