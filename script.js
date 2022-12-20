@@ -1,3 +1,6 @@
+const results = document.querySelector('.results');
+const score = document.querySelector('.score');
+
 // Generate a random choice between 'Rock', 'Paper', and 'Scissors'
 function getComputerChoice() {
   let random = Math.floor(Math.random() * 3) + 1;
@@ -18,20 +21,19 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let playerSelect = playerSelection.slice(0, 1).toUpperCase() + playerSelection.slice(1).toLowerCase();
   let computerSelect = computerSelection;
-  console.log(`You: ${playerSelect} \nComputer: ${computerSelect}`);
 
   if (playerSelect == computerSelect) {
-    console.log('Draw!');
+    results.textContent = 'Draw!';
   } else if ((playerSelect == 'Rock' && computerSelect == 'Paper') ||
     (playerSelect == 'Paper' && computerSelect == 'Scissors') ||
     (playerSelect == 'Scissors' && computerSelect == 'Rock')) {
-    console.log(`You lose! ${computerSelect} beats ${playerSelect}`);
+    results.textContent = `You lose! ${computerSelect} beats ${playerSelect}`;
     computerScore++;
   } else {
-    console.log(`You win! ${playerSelect} beats ${computerSelect}`);
+    results.textContent = `You win! ${playerSelect} beats ${computerSelect}`;
     playerScore++;
   }
-  console.log(`SCORE\tYou: ${playerScore} \tComputer: ${computerScore}`);
+  score.textContent = `SCORE\tYou: ${playerScore} \tComputer: ${computerScore}`;
 }
 
 // Play the game for 5 rounds
